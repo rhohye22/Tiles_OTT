@@ -24,11 +24,9 @@
 	
 	
 <!-- 					공통패키지(경로) 설정								-->
-<<<<<<< HEAD
+
 	<context:component-scan base-package="ITzy.OTT" />
-=======
-	<context:component-scan base-package="mul.cam.a" />
->>>>>>> refs/remotes/origin/master
+
 	
 <!-- 	ajax 사용 허가		-->
 	<mvc:annotation-driven/>

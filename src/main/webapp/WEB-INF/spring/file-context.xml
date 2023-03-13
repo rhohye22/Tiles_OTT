@@ -13,11 +13,10 @@
 	</bean>
 
 <!-- 	download 	-->
-<<<<<<< HEAD
+
 	<bean id="DownloadView" class="ITzy.OTT.util.DownloadView"/>
-=======
-	<bean id="DownloadView" class="mul.cam.a.util.DownloadView"/>
->>>>>>> refs/remotes/origin/master
+
+
 	<bean id="DownloadViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order">
 			<value>0</value>
