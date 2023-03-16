@@ -1,4 +1,4 @@
-package ITzy.OTT.controller;
+package ITzy.OTT.Member;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,11 +22,11 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
-	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public String main() {
-//		System.out.println("MemberController login " + new Date());
-		return "main";
-	}
+//	@RequestMapping(value = "main.do", method = RequestMethod.GET)
+//	public String main() {
+////		System.out.println("MemberController login " + new Date());
+//		return "main";
+//	}
 	
 	@RequestMapping(value = "login.do", method = RequestMethod.GET)
 	public String login() {

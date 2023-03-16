@@ -1,7 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%
-String sessionOut = (String)request.getAttribute("sessionOut");
+
+	
+	/* ***** calendar ***** */
+	String calWrite = (String)request.getAttribute("calWrite");
+	if(calWrite != null && !calWrite.equals("")){
+		if(calWrite.equals("Cal_ADD_OK")){
+			%>
+			<script type="text/javascript">
+			alert("성공적으로 작성되었습니다");
+			location.href = "calendar.do";
+			</script>
+			<%
+		}
+		else{
+			%>
+			<script type="text/javascript">
+			alert("다시 작성해 주십시오");
+			location.href = "calwrite.do";
+			</script>
+			<%
+		}
+	}
+	
+	String calUpdate = (String)request.getAttribute("calupdate");
+	if(calUpdate != null && !calUpdate.equals("")){
+		if(calUpdate.equals("Cal_UPDATE_OK")){
+			%>
+			<script type="text/javascript">
+			alert("성공적으로 수정되었습니다");
+			location.href = "calendar.do";
+			</script>
+			<%
+		}
+		else{
+			int seq = (Integer)request.getAttribute("seq");
+			%>
+			<script type="text/javascript">
+			alert("다시 작성해 주십시오");
+			let seq = "<%=seq %>";		
+			location.href = "calupdate.do?seq"+seq;
+			</script>
+			<%
+		}	
+	}
+	String calDelete = (String)request.getAttribute("caldelete");
+	if(calDelete != null && !calDelete.equals("")){
+		if(calDelete.equals("Cal_DELETE_OK")){
+			%>
+			<script type="text/javascript">
+			alert("성공적으로 삭제되었습니다");
+			location.href = "calendar.do";
+			</script>
+			<%
+		}
+		else{
+			int seq = (Integer)request.getAttribute("seq");
+			%>			
+			<script type="text/javascript">
+			alert("삭제되지 않았습니다");
+			location.href = "caldelete.do?seq="+seq;
+			</script>
+			<%
+		}	
+	}
+	
+	
+	
+	/* ***** login ***** */
+	String sessionOut = (String)request.getAttribute("sessionOut");
 if(sessionOut != null && !sessionOut.equals("")){
 	%>
 		<script type="text/javascript">

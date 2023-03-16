@@ -21,7 +21,7 @@ import ITzy.OTT.dto.MemberDto;
 public class AopProc {
 	
 //	@Around("within(mul.cam.a.controller.*) or within(mul.cam.a.dao.*.*)") -> sessionCheck를 위해 주석
-	@Around("within(mul.cam.a.controller.*)")
+	@Around("within(ITzy.OTT.controller.*)")
 	public Object loggerAop(ProceedingJoinPoint joinpoint) throws Throwable{
 		
 		// session check : membercontroller를 package 이동시켜야 무한루프에서 벗어남
