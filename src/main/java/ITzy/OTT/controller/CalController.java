@@ -75,7 +75,7 @@ public class CalController {
 		System.out.println("/////"+yyyyMM);
 		model.addAttribute("vlist", vlist);
 		
-		return "calendar";
+		return "calendar/calendar";
     }
 	
 	@RequestMapping(value="/callist.do", method= RequestMethod.GET)
@@ -98,13 +98,13 @@ public class CalController {
 		List<CalDto> list = service.calList(id, yyyyMMdd);
 		model.addAttribute("list",list);
 		
-		return "callist";
+		return "calendar/callist";
     }
 	
 	@RequestMapping(value="/calwrite.do", method= RequestMethod.GET)
     public String calwrite(Model model) {
 
-		return "calwrite";
+		return "calendar/calwrite";
     }
 	
 	@PostMapping(value = "calwriteAf.do")
@@ -147,7 +147,7 @@ public class CalController {
 		CalDto dto = service.calDetail(seq);
 		model.addAttribute("caldetail",dto);
 		
-		return "caldetail";
+		return "calendar/caldetail";
 	}
 	
 	
@@ -165,7 +165,7 @@ public class CalController {
 		CalDto dto = service.calDetail(seq);
 		model.addAttribute("dto", dto);
 		
-		return "calupdate";
+		return "calendar/calupdate";
 	}
 	
 	@PostMapping(value = "calupdateAf.do")

@@ -6,15 +6,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+}
 	a{
 		text-decoration: none;
+	}
+	h1{
+		margin: 0;
+		padding: 0;
 	}
 	footer{
 		width: 100%;
 		height: 130px;
 		background: #eee;
-		position: fixed;
-		bottom: 0;
+		margin-top: 100px;
+		
 	}
 	#footer_wrap{
 		width: 1200px;

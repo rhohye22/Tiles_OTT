@@ -22,11 +22,11 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
-//	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-//	public String main() {
-////		System.out.println("MemberController login " + new Date());
-//		return "main";
-//	}
+	@RequestMapping(value = "main.do", method = RequestMethod.GET)
+	public String main() {
+//		System.out.println("MemberController login " + new Date());
+		return "main";
+	}
 	
 	@RequestMapping(value = "login.do", method = RequestMethod.GET)
 	public String login() {

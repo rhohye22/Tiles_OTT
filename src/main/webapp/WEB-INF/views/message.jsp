@@ -120,6 +120,9 @@ if(login != null && !login.equals("")){
 }
 
 
+
+
+
 String bbswrite = (String)request.getAttribute("bbswrite");
 if(bbswrite != null && !bbswrite.equals("")){
 	if(bbswrite.equals("BBS_ADD_OK")){
@@ -161,7 +164,25 @@ if(answer != null && !answer.equals("")){
 	}	
 }
 
-
+String nanswer = (String)request.getAttribute("nanswer");
+if(nanswer != null && !nanswer.equals("")){
+	if(nanswer.equals("NBS_ANSWER_OK")){
+		%>
+		<script type="text/javascript">
+		alert("답글이 성공적으로 작성되었습니다");
+		location.href = "nbslist.do";
+		</script>
+		<%
+	}
+	else{
+		%>
+		<script type="text/javascript">
+		alert("답글을 다시 작성해 주십시오");
+		location.href = "nbslist.do";
+		</script>
+		<%
+	}	
+}
 
 String bbsupdate = (String)request.getAttribute("bbsupdate");
 if(bbsupdate != null && !bbsupdate.equals("")){

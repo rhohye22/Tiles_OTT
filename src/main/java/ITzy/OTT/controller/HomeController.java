@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-	@GetMapping(value = "/main.do")
-	public String login() {
-		System.out.println("MemberController main() " + new Date());
-		
-		return "main";
-	}
+//	@GetMapping(value = "/main.do")
+//	public String login() {
+//		System.out.println("MemberController main() " + new Date());
+//		
+//		return "main";
+//	}
 	
 	@GetMapping(value = "/admin.do")
 	public String bbslist() {

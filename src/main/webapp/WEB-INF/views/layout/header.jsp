@@ -7,11 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style>
 *{
     margin: 0;
     padding: 0;
 }
+	body{
+		height: 100%;
+	}
 	a{
 		color:#333;
 		margin: 0;
@@ -122,7 +126,7 @@
             <div class="nav">
                 <ul>
                     <li>
-                        <a href="bbslist.do">오디션 공고</a>
+                        <a href="nbslist.do">오디션 공고</a>
                     </li>
                     <li>
                         <a href="pdslist.do">커뮤니티</a>
