@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,42 @@ public class MemberController {
 		return "login";
 	}
 	
+	
+	@RequestMapping(value = "loginAf.do", method = RequestMethod.POST)
+	public String loginAf(HttpServletRequest req, Model model,MemberDto dto) {
+//		System.out.println("MemberController login " + new Date());
+		
+		MemberDto mem = service.login(dto);
+		String msg ="";
+		if (mem != null) {
+			req.getSession().setAttribute("login", mem);
+			req.getSession().setMaxInactiveInterval(7200);
+			msg = "LOGIN_OK"; 
+			System.out.println();
+		}else {
+			msg = "LOGIN_FAIL"; 
+			System.out.println();
+		}
+		model.addAttribute("login",msg);
+		return "message";
+	}
+	
+	// session check
+	@RequestMapping(value = "sessionOut.do", method = RequestMethod.GET)
+	public String sessionOut(HttpServletRequest req,HttpSession session,Model model) {
+		session.removeAttribute("login"); 
+		String sessionOut = "logout";
+		model.addAttribute("sessionOut", sessionOut);
+		return "message";
+	}
+	
+/*	
+	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
+	public String logout() {
+//		System.out.println("MemberController login " + new Date());
+		return "login";
+	}
+*/	
 	@RequestMapping(value = "regi.do", method = RequestMethod.GET)
 	public String regi() {
 //		System.out.println("MemberController regi " + new Date());
@@ -66,25 +103,7 @@ public class MemberController {
 		model.addAttribute("message", message);
 		return "message";
 	}
-	
-	@RequestMapping(value = "loginAf.do", method = RequestMethod.POST)
-	public String loginAf(HttpServletRequest req, Model model,MemberDto dto) {
-//		System.out.println("MemberController login " + new Date());
-		
-		MemberDto mem = service.login(dto);
-		String msg ="";
-		if (mem != null) {
-			req.getSession().setAttribute("login", mem);
-			req.getSession().setMaxInactiveInterval(7200);
-			msg = "LOGIN_OK"; 
-			System.out.println();
-		}else {
-			msg = "LOGIN_FAIL"; 
-			System.out.println();
-		}
-		model.addAttribute("login",msg);
-		return "message";
-	}
+
 	@RequestMapping(value = "BizloginAf.do", method = RequestMethod.POST)
 	public String BizloginAf(HttpServletRequest req, Model model,MemberDto dto) {
 //		System.out.println("MemberController login " + new Date());
@@ -119,12 +138,5 @@ public class MemberController {
 	}
 
 
-	
-	// session check
-	@RequestMapping(value = "sessionOut.do", method = RequestMethod.GET)
-	public String sessionOut(Model model) {
-		String sessionOut = "logout";
-		model.addAttribute("sessionOut", sessionOut);
-		return "message";
-	}
+
 }
