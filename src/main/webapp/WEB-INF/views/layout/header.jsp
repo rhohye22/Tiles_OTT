@@ -105,14 +105,13 @@
             <div class="login">
 			  <%
 			  MemberDto login = (MemberDto)session.getAttribute("login");
-			    String id = (String) session.getAttribute("id");
-			    if(id == null){
+			    if(login == null){
 			  %>
 			  <p><a href="login.do">로그인</a></p>
 			  <%
 			    }else{
 			  %>
-			  <p><%=session.getId()%>님 환영합니다! <a href="logout.do">로그아웃</a></p>
+			  <p><%=login.getId()%>님 환영합니다! <a href="logout.do">로그아웃</a></p>
 			  <% 
 			    }
 			  %>
@@ -136,6 +135,9 @@
                     </li>
                     <li>
                         <a href="calendar.do">일정관리</a>
+                    </li>
+                    <li>
+                        <a href="qna.do">Q&A</a>
                     </li>
                 </ul>
             </div>
