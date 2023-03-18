@@ -73,7 +73,7 @@
 if(sessionOut != null && !sessionOut.equals("")){
 	%>
 		<script type="text/javascript">
-		alert("로그인 해주십시오");
+		alert("로그아웃 되었습니다");
 		location.href = "login.do";
 		</script>
 		<%
@@ -119,6 +119,29 @@ if(login != null && !login.equals("")){
 	}
 }
 
+
+
+/* ***** QnA ***** */
+
+
+String qnawriteAf = (String)request.getAttribute("qnawriteAf");
+if(qnawriteAf != null && !qnawriteAf.equals("")){
+	if(qnawriteAf.equals("Q_ADD_YES")){
+		%>
+		<script type="text/javascript">
+		alert("질문이 등록되었습니다");
+		location.href = "qna.do";
+		</script>
+		<%
+	}else{
+		%>
+		<script type="text/javascript">
+		alert("질문 등록에 실패했습니다");
+		location.href = "qna.do";
+		</script>
+		<%		
+	}
+}
 
 
 

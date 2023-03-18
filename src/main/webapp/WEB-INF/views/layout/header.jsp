@@ -111,7 +111,7 @@
 			  <%
 			    }else{
 			  %>
-			  <p><%=login.getId()%>님 환영합니다! <a href="logout.do">로그아웃</a></p>
+			  <p><%=login.getId()%>님 환영합니다! <a href="sessionOut.do">로그아웃</a></p>
 			  <% 
 			    }
 			  %>

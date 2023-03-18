@@ -33,7 +33,13 @@ public class MemberController {
 //		System.out.println("MemberController login " + new Date());
 		return "login";
 	}
-	
+/*	
+	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
+	public String logout() {
+//		System.out.println("MemberController login " + new Date());
+		return "login";
+	}
+*/	
 	@RequestMapping(value = "regi.do", method = RequestMethod.GET)
 	public String regi() {
 //		System.out.println("MemberController regi " + new Date());
@@ -122,7 +128,8 @@ public class MemberController {
 	
 	// session check
 	@RequestMapping(value = "sessionOut.do", method = RequestMethod.GET)
-	public String sessionOut(Model model) {
+	public String sessionOut(HttpServletRequest req,Model model) {
+		req.removeAttribute("login");
 		String sessionOut = "logout";
 		model.addAttribute("sessionOut", sessionOut);
 		return "message";
