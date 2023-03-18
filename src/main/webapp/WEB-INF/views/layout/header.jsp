@@ -105,8 +105,10 @@
             <div class="login">
 			  <%
 			  MemberDto login = (MemberDto)session.getAttribute("login");
-			    if(login == null){
-			  %>
+			    if(login == null){%>
+			  <script type="text/javascript">
+			  alert("세션이 만료되었습니다");
+			  </script>
 			  <p><a href="login.do">로그인</a></p>
 			  <%
 			    }else{

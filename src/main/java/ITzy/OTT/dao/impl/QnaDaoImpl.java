@@ -24,6 +24,6 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Override
 	public int addQna(QnaDto dto) {
-		return session.insert(ns+"addQna");
+		return session.insert(ns+"addQna",dto);
 	}
 }

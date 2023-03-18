@@ -6,16 +6,18 @@ public class QnaDto implements Serializable{
 
 	private int seq;
 	private String id;
-	private String title;
+	private String qtype;
+	private String title;	
 	private String content;
 	private String wdate;
 	
 	public QnaDto() {}
 
-	public QnaDto(int seq, String id, String title, String content, String wdate) {
+	public QnaDto(int seq, String id, String qtype, String title, String content, String wdate) {
 		super();
 		this.seq = seq;
 		this.id = id;
+		this.qtype = qtype;
 		this.title = title;
 		this.content = content;
 		this.wdate = wdate;
@@ -35,6 +37,14 @@ public class QnaDto implements Serializable{
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getQtype() {
+		return qtype;
+	}
+
+	public void setQtype(String qtype) {
+		this.qtype = qtype;
 	}
 
 	public String getTitle() {
@@ -63,9 +73,8 @@ public class QnaDto implements Serializable{
 
 	@Override
 	public String toString() {
-		return "QnaDto [seq=" + seq + ", id=" + id + ", title=" + title + ", content=" + content + ", wdate=" + wdate + "]";
+		return "QnaDto [seq=" + seq + ", id=" + id + ", qtype=" + qtype + ", title=" + title + ", content=" + content + ", wdate=" + wdate + "]";
 	}
-	
-	
+
 	
 }

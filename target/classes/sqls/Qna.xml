@@ -12,8 +12,10 @@
 
 
 	<insert id="addQna" parameterType="ITzy.OTT.dto.QnaDto">
-		insert into qna(id, title, content)
-		values(#{id}, #{title}, #{content})
+
+		insert into qna(id, qtype, title, content,wdate)
+		values(#{id},#{qtype},#{title},#{content}, now());
+
 	</insert>
 
 
