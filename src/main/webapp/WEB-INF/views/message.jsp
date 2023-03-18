@@ -74,7 +74,7 @@ if(sessionOut != null && !sessionOut.equals("")){
 	%>
 		<script type="text/javascript">
 		alert("로그아웃 되었습니다");
-		location.href = "login.do";
+		location.href = "main.do";
 		</script>
 		<%
 	}

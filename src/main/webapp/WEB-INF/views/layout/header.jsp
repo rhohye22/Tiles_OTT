@@ -115,8 +115,7 @@
 			  <% 
 			    }
 			  %>
-
-
+	</div>
         </div>
         <div class="logo_nav">
             <div class="logo">
@@ -142,7 +141,7 @@
                 </ul>
             </div>
         </div>
-	</div>
+
 </div>	
 </header>
 </body>
