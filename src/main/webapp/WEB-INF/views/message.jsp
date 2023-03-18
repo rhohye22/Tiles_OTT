@@ -68,7 +68,7 @@
 	
 	
 	
-	/* ***** login ***** */
+/* ***** login ***** */
 	String sessionOut = (String)request.getAttribute("sessionOut");
 if(sessionOut != null && !sessionOut.equals("")){
 	%>
@@ -130,20 +130,20 @@ if(qnawriteAf != null && !qnawriteAf.equals("")){
 		%>
 		<script type="text/javascript">
 		alert("질문이 등록되었습니다");
-		location.href = "qna.do";
+		location.href = "qnalist.do";
 		</script>
 		<%
 	}else{
 		%>
 		<script type="text/javascript">
 		alert("질문 등록에 실패했습니다");
-		location.href = "qna.do";
+		location.href = "qnalist.do";
 		</script>
 		<%		
 	}
 }
 
-
+/* ***** bbs ***** */
 
 
 String bbswrite = (String)request.getAttribute("bbswrite");

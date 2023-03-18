@@ -1,6 +1,8 @@
 <%@page import="ITzy.OTT.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,12 +26,13 @@ if (login == null) {
 <body>
 	<h2>Q&A등록</h2>
 
-	<form action="qnawriteAf.do" method="post">
+	<form action="qnawriteAf.do" method="post" id=frm>
 
 		<table border="1">
 			<tr>
 				<th>아이디</th>
-				<td><%=login.getId()%> <input type="hidden" name="id" value="<%=login.getId()%>"></td>
+				<td><%=login.getId()%> <input type="hidden" name="id"
+					value="<%=login.getId()%>"></td>
 			</tr>
 			<tr>
 				<th>건의유형</th>
@@ -51,7 +54,7 @@ if (login == null) {
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<button type="submit">질문등록</button>
+					<button type="button" id=btn>질문등록</button>
 				</td>
 			</tr>
 
@@ -59,7 +62,20 @@ if (login == null) {
 
 	</form>
 
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#btn").click(function() {
 
+				if ($("#title").val().trim() == "") {
+					alert("제목을 기입해 주십시오");					
+				} else if ($("#content").val().trim() == "") {
+					alert("내용을 기입해 주십시오");				
+				} else {
+					$("#frm").submit();
+				}
+			});
+		});
+	</script>
 
 </body>
 </html>
