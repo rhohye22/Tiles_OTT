@@ -38,5 +38,29 @@
 	</select>
 
 
+	<!-- 마이페이지 -->
+	<select id="mypage" parameterType="ITzy.OTT.dto.MemberDto" resultType="ITzy.OTT.dto.MemberDto">
+		select *
+		from member
+		where id=#{id}
+	</select>
+	
+	<update id="update_mypage" parameterType="ITzy.OTT.dto.MemberDto">
+		update member 
+		set name= #{name}, email = #{email}
+		where id = #{id}
+	</update>
+	
+	<select id="pwdUpdate" parameterType="ITzy.OTT.dto.MemberDto" resultType="ITzy.OTT.dto.MemberDto">
+		select pwd
+		from member
+		where id=#{id}
+	</select>
+	
+	<update id="pwdupdateAf" parameterType="ITzy.OTT.dto.MemberDto">
+		update member 
+		set pwd= #{pwd}
+		where id = #{id}
+	</update>
 
 </mapper>

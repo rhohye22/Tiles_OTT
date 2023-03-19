@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import ITzy.OTT.dao.MemberDao;
 import ITzy.OTT.dto.MemberDto;
@@ -55,5 +56,34 @@ public class MemberDaoImpl implements MemberDao{
 	public MemberDto Bizlogin(MemberDto dto) {
 		MemberDto mem = session.selectOne(ns + "Bizlogin", dto);
 		return mem;
+	}
+
+
+//	마이페이지
+	@Override
+	public boolean update_mypage(MemberDto dto){
+		int count = session.update(ns + "update_mypage", dto);
+		return count>0?true:false;
+	}
+
+
+	@Override
+	public MemberDto mypage(String id) {
+		MemberDto dto = session.selectOne(ns + "mypage", id);
+		return dto;
+	}
+
+
+	@Override
+	public boolean pwdupdateAf(MemberDto dto) {
+		int count = session.update(ns + "pwdupdateAf", dto);
+		return count>0?true:false;
+	}
+
+
+	@Override
+	public MemberDto pwdUpdate(String id) {
+		MemberDto dto = session.selectOne(ns+ "pwdUpdate", id);
+		return dto;
 	}
 }

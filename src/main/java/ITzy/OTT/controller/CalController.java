@@ -45,7 +45,14 @@ public class CalController {
     public String calendar(HttpServletRequest req, Model model, String year, String month) {	
 		
 		HttpSession session = req.getSession();
-		String id = ((MemberDto) session.getAttribute("login")).getId();
+		MemberDto dto = (MemberDto) session.getAttribute("login");
+		
+		if (dto == null) {
+			return "redirect:/login.do";
+		}
+
+		String id = dto.getId();
+
 		
 		if(year == null || month == null) {
 			Calendar cal = Calendar.getInstance();

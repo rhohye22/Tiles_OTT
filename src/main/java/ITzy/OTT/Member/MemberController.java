@@ -10,11 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import ITzy.OTT.dto.CalDto;
 import ITzy.OTT.dto.MemberDto;
 import ITzy.OTT.service.MemberService;
 
@@ -112,7 +113,7 @@ public class MemberController {
 		String msg ="";
 		if (mem != null) {
 			req.getSession().setAttribute("login", mem);
-			req.getSession().setMaxInactiveInterval(7200);
+			req.getSession().setMaxInactiveInterval(60);
 			msg = "LOGIN_OK"; 
 			System.out.println();
 		}else {
@@ -137,6 +138,63 @@ public class MemberController {
 		return "message";
 	}
 
+//	마이페이지
 
+	
+	@GetMapping(value = "mypage.do")
+	public String mypage(HttpServletRequest req, Model model) {
+		HttpSession session = req.getSession();
+		String id = ((MemberDto) session.getAttribute("login")).getId();
+		MemberDto dto = service.mypage(id);
 
+		model.addAttribute("mypage", dto);
+		return "login/mypage";
+	}
+	
+	@RequestMapping(value = "mypageUpdate.do")
+	public String mypageUpdate(){
+		return "login/mypageUpdate";
+	}
+	
+	@RequestMapping(value = "update_mypage.do", method = RequestMethod.POST)
+	public String update_mypage(Model model, MemberDto dto, String id) {
+		boolean isS = service.update_mypage(dto);
+		System.out.println("////////////////////////" + isS);
+		String update_mypage = "";
+		if(isS) {			
+			update_mypage = "mypage_UPDATE_OK";
+		} else {
+			update_mypage = "mypage_UPDATE_NG";
+		}
+		
+		model.addAttribute("update_mypage", update_mypage);
+
+		return "message";
+	}
+	
+	
+	@RequestMapping(value = "pwdUpdate.do")
+	public String pwdUpdate(HttpServletRequest req, Model model){
+		HttpSession session = req.getSession();
+		String id = ((MemberDto) session.getAttribute("login")).getId();
+		MemberDto dto = service.pwdUpdate(id);
+		
+		model.addAttribute("pwdUpdate", dto);
+		return "login/pwdUpdate";
+	}
+	@RequestMapping(value = "pwdupdateAf.do", method = RequestMethod.POST)
+	public String pwdupdateAf(Model model, MemberDto dto, String id) {
+		boolean isS = service.pwdupdateAf(dto);
+		System.out.println("////////////////////////"+dto.getPwd());
+		String pwdupdateAf = "";
+		if(isS) {			
+			pwdupdateAf = "pwdupdate_UPDATE_OK";
+		} else {
+			pwdupdateAf = "pwdupdate_UPDATE_NG";
+		}
+		
+		model.addAttribute("pwdupdateAf", pwdupdateAf);
+
+		return "message";
+	}
 }
