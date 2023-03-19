@@ -105,8 +105,12 @@
             <div class="login">
 			  <%
 			  MemberDto login = (MemberDto)session.getAttribute("login");
-			    if(login == null){
-			  %>
+			    if(login == null){%>
+<!-- 			    
+			  <script type="text/javascript">
+			  alert("세션이 만료되었습니다");
+			  </script>
+	 -->		  
 			  <p><a href="login.do">로그인</a></p>
 			  <%
 			    }else{
@@ -136,7 +140,7 @@
                         <a href="calendar.do">일정관리</a>
                     </li>
                     <li>
-                        <a href="qna.do">Q&A</a>
+                        <a href="qnalist.do">Q&A</a>
                     </li>
                 </ul>
             </div>

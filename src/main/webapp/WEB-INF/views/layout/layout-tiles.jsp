@@ -8,6 +8,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+header{
+height: 10%;
+}
+
+</style>
+
+
 </head>
 <body>
 
