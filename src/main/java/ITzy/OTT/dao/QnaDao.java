@@ -9,5 +9,4 @@ public interface QnaDao {
 	int addQna(QnaDto dto);
 	QnaDto findQna(int seq);
 	QnaDto ansQna(int seq);
-
 }
