@@ -1,6 +1,9 @@
 package ITzy.OTT.service.impl;
 
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,5 +53,30 @@ public class MemberServiceImpl implements MemberService{
 	public MemberDto Bizlogin(MemberDto dto) {
 		
 		return dao.Bizlogin(dto);
+	}
+
+//	마이페이지
+	@Override
+	public boolean update_mypage(MemberDto dto){
+		
+		return dao.update_mypage(dto);
+	}
+
+
+	@Override
+	public MemberDto mypage(String id) {
+		return dao.mypage(id);
+	}
+	
+	@Override
+	public boolean pwdupdateAf(MemberDto dto){
+		
+		return dao.pwdupdateAf(dto);			
+	}
+
+
+	@Override
+	public MemberDto pwdUpdate(String id) {
+		return dao.pwdUpdate(id);
 	}
 }
